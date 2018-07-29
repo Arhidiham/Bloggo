@@ -146,7 +146,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Bloggo\Providers\AppServiceProvider::class,
+        Bloggo\Providers\AuthServiceProvider::class,
+        // Bloggo\Providers\BroadcastServiceProvider::class,
+        Bloggo\Providers\EventServiceProvider::class,
+        Bloggo\Providers\RouteServiceProvider::class,
 
     ],
 

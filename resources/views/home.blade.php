@@ -15,6 +15,11 @@
                     @endif
 
                     You are logged in!
+                    
+                </div>
+                <div class="card-body">
+                    <a href="{{ url('/add') }}" class="btn btn-primary">Create</a>
+                    <a href="{{ url('/article') }}" class="btn btn-primary">View</a>
                 </div>
             </div>
         </div>
