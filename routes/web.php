@@ -11,16 +11,20 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
+// setup all article routes
+Route::get('add', 'ArticleController@create');
+Route::post('add', 'ArticleController@store');
+Route::get('article', 'ArticleController@index');
+Route::get('edit/{id}', 'ArticleController@edit');
+Route::post('edit/{id}', 'ArticleController@update');
+Route::delete('{id}', 'ArticleController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-/*
-Route::get('/about', function () {
-    return view('about');
-});
-*/
