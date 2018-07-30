@@ -7,6 +7,7 @@ use Bloggo\Article;
 
 /**
  * Article controller for the blog.
+ * This controller is protected by authentication.
  * 
  * @category Http
  * @package  Controllers
@@ -18,13 +19,24 @@ class ArticleController extends Controller
 {
     
     /**
+     * Setup the class.
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        // protect the articles
+        $this->middleware('auth');
+    }
+    
+    /**
      * Used to view the create page.
      * 
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
     public function create()
     {
-        return view('articlecreate');
+        return view('create');
     }
     
     /**
@@ -40,18 +52,7 @@ class ArticleController extends Controller
         $model->heading = $request->get('heading');
         $model->body = $request->get('body');
         $model->save();
-        return redirect('article')->with('success', 'Article has been successfully added.');
-    }
-    
-    /**
-     * Gets the list of articles currently created.
-     * 
-     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
-     */
-    public function index()
-    {
-        $articles = Article::all();
-        return view('articleindex', compact('articles'));
+        return redirect('index')->with('success', 'Article has been successfully added.');
     }
     
     /**
@@ -64,7 +65,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return view('articleedit', compact('article', 'id'));
+        return view('edit', compact('article', 'id'));
     }
     
     /**
@@ -81,7 +82,7 @@ class ArticleController extends Controller
         $model->heading = $request->get('heading');
         $model->body = $request->get('body');
         $model->save();
-        return redirect('article')->with('success', 'Article has been successfully updated.');
+        return redirect('index')->with('success', 'Article has been successfully updated.');
     }
     
     /**
@@ -95,6 +96,6 @@ class ArticleController extends Controller
     {
         $model = Article::find($id);
         $model->delete();
-        return redirect('article')->with('success', 'Article has been deleted.');
+        return redirect('index')->with('success', 'Article has been deleted.');
     }
 }
