@@ -69,10 +69,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/index') }}">Index</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
                     @endauth
                 </div>
             @endif
@@ -81,9 +80,8 @@
                 <div class="title m-b-md">
                     Bloggo
                 </div>
-
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="{{ url('/index') }}">Articles</a>
                     <a href="https://github.com/Arhidiham/Bloggo">GitHub</a>
                 </div>
             </div>

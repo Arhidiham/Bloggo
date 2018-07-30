@@ -7,7 +7,7 @@
             <form method="post" action="{{ url('add') }}">
                 @csrf
                 <div class="card">
-                    <div class="card-header">Edit an Article</div>
+                    <div class="card-header">Create new Article</div>
     
                     <div class="card-body">
                         <div class="row">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="card-body">
                         <button type="submit" class="btn btn-success">Save</button>
-                        <a href="{{ url('/article') }}" class="btn btn-primary">Cancel</a>
+                        <a href="{{ url('/index') }}" class="btn btn-primary">Cancel</a>
                     </div>
                 </div>
             </form>
